@@ -1,0 +1,76 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?crop=entropy&ixid=MnwxMDczMTJ8MHwxfHNlYXJjaHw0fHxub3RlfGVufDB8MHx8fDE2NDg5MzA3OTA&ixlib=rb-1.2.1&fit=crop&ar=1.91%3A1&fm=jpg');
+    background-size: cover;
+    background-position: center;
+    color: rgb(12, 11, 11);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Navbar Styling */
+nav {
+    width: 100%;
+    background-color: whitesmoke;
+    /* Semi-transparent navbar */
+    padding: 20px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: hsl(60, 5%, 4%);
+    /* Change color on hover */
+}
+
+/* Form Styling */
+form {
+    background-color: whitesmoke;
+    /*Semi-transparent background */
+    padding: 30px;
+    border-radius: 8px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+    text-align: center;
+}
+
+h1,
+h2 {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #61045f;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    /* transition: background-color 0.3s ease; */
+}
+
+button:hover {
+    background-color: #aa076b;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.0.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="/static/all.css">
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <h2>{{ message }}</h2>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <section>
+        <div class="content">
+            <form  method="POST">
+                <h2>Create</h2>
+
+                <!-- <div class="inputbox">
+                    <ion-icon name="id-card-outline"></ion-icon>
+                    <input type="text" name="user_id" required>
+                    <label for="user_id">User ID</label>
+                </div> -->
+
+                <div class="inputbox">
+                    <ion-icon name="person-outline" ></ion-icon>
+                    <input type="text" name="user_name" required>
+                    <label for="user_name">User Name</label>
+                </div>
+
+                <div class="inputbox">
+                    <ion-icon name="mail-outline"></ion-icon>
+                    <input type="email" name="email" required>
+                    <label for="email">Email</label>
+                </div>
+
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" name="password" required>
+                    <label for="password">Password</label>
+                </div>
+
+                <div class="inputbox">
+                    <ion-icon name="lock-closed-outline"></ion-icon>
+                    <input type="password" name="confirm_password" required>
+                    <label for="confirm_password">Confirm Password</label>
+                </div>
+
+                <button type="submit">Create</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

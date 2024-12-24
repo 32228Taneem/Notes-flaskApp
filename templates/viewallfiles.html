@@ -1,0 +1,32 @@
+{% extends 'dashboard.html' %}
+{% block addcss %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+{% endblock %}
+{% block content %}
+    <table border="1px">
+        <thead>
+            <tr>
+            <th>file id</th>
+            <th>file name</th>
+            <th>created at</th>
+            <th>View</th>
+            <th>delete</th>
+            <th>update</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in fdata %}
+            <tr>
+                <td>{{i[0]}}</td>
+                <td>{{i[1]}}</td>
+                <td>{{i[2]}}</td>
+                <td><a href="{{url_for('viewfile',nid=i[0])}}">View</a></td>
+                <td><a href="{{url_for('downloadfile',nid=i[0])}}">Downlode</a></td>
+                <td><a href="{{url_for('deletefile',nid=i[0])}}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
