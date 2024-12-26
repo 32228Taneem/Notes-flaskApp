@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="{{url_for('static',filename='addnotes.css')}}">
 {% endblock %}
 {% block content %}
-    <div class="container">
+    <div class="acontainer">
         <h1>Update Notes</h1>
         <form method="POST">
             <div class="form-group">
@@ -15,7 +15,7 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" placeholder="Enter the description" required>{{ndata[2]}}</textarea>
             </div>
-            <button type="submit" class="btn">Save Note</button>
+            <button type="submit" class="abtn">Save Note</button>
         </form>
     </div>
 {% endblock %}

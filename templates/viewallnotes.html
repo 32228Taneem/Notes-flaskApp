@@ -1,19 +1,74 @@
 {% extends 'dashboard.html' %}
 {% block addcss %}
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+   body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Courier New', Courier, monospace;
+        background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+    }
+
+    .t {
+        margin: 5%;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th,
+    td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #e0c3fc;
+    }
+
+    th {
+        background-color: #8eaccd;
+        color: white;
+    }
+
+    tr {
+        background-color: #d1e9f6;
+    }
+
+    tr:nth-child(even) {
+        background-color: #d2e0fb;
+    }
+
+    tr:hover {
+        background-color: #bbe9ff;
+    }
+
+    .b {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: white;
+        border-radius: 5px;
+        background-color: #b1afff;
+    }
+
+    .b:hover {
+        background-color: #90e0ef;
+        opacity: 0.9;
+    }
+</style>
 {% endblock %}
 {% block content %}
+<div class="t">
     <table border="1px">
         <thead>
             <tr>
-            <th>notes id</th>
-            <th>title</th>
-            <th>created at</th>
-            <th>View</th>
-            <th>delete</th>
-            <th>update</th>
+                <th>notes id</th>
+                <th>title</th>
+                <th>created at</th>
+                <th>View</th>
+                <th>delete</th>
+                <th>update</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +77,12 @@
                 <td>{{i[0]}}</td>
                 <td>{{i[1]}}</td>
                 <td>{{i[2]}}</td>
-                <td><a href="{{url_for('viewnotes',nid=i[0])}}">View</a></td>
-                <td><a href="{{url_for('deletenotes',nid=i[0])}}">delete</a></td>
-                <td><a href="{{url_for('updatenotes',nid=i[0])}}">update</a></td>
+                <td><a href="{{url_for('viewnotes',nid=i[0])}}" class="b">View</a></td>
+                <td><a href="{{url_for('deletenotes',nid=i[0])}}" class="b">delete</a></td>
+                <td><a href="{{url_for('updatenotes',nid=i[0])}}" class="b">update</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}

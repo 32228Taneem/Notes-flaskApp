@@ -19,41 +19,50 @@
 
 <body>
   
-  <nav class="custom-navbar">
-    <div class="navbar-brand">Navbar</div>
-    <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
-    <div class="navbar-links">
-        <a href="{{url_for('dashboard')}}" class="nav-link">HOME</a>
-        <a href="{{url_for('getexceldata')}}">Get Excel</a>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            NOTES
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{url_for('addnotes')}}">ADD Notes</a>
-            <a class="dropdown-item" href="{{url_for('viewallnotes')}}">view Notes</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-            File
-          </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="{{url_for('uplodefile')}}">Uplode file</a>
-            <a class="dropdown-item" href="{{url_for('viewallfiles')}}">View all files</a>
-          </div>
-        </li>
-        <a href="{{url_for('logout')}}" class="nav-link">Logout</a>
-
-        
+  <nav class="navbar navbar-expand-lg" style="background: linear-gradient(135deg, #ff9a9e, #fad0c4); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);">
+    <div class="container">
+      <a class="navbar-brand text-white font-weight-bold" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a href="{{url_for('dashboard')}}" class="nav-link text-white">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a href="{{url_for('getexceldata')}}" class="nav-link text-white">Get Excel</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="notesDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              NOTES
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{url_for('addnotes')}}">ADD Notes</a>
+              <a class="dropdown-item" href="{{url_for('viewallnotes')}}">View Notes</a>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="filesDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+              FILES
+            </a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="{{url_for('uplodefile')}}">Upload File</a>
+              <a class="dropdown-item" href="{{url_for('viewallfiles')}}">View All Files</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="{{url_for('logout')}}" class="nav-link text-white">Logout</a>
+          </li>
+        </ul>
+        <form class="form-inline ml-3" action="{{url_for('search')}}" method="POST">
+          <input type="text" class="form-control mr-2" placeholder="Search" name="sname">
+          <button type="submit" class="btn btn-outline-light">Search</button>
+        </form>
+        <span class="navbar-text ml-2 text-white">{{ session.get('user') }}</span>
+      </div>
     </div>
-    <form class="search-form" action="{{url_for('search')}}" method="POST">
-        <input type="text" class="search-input" placeholder="Search" name="sname">
-        <button type="submit" class="search-button">Search</button>
-        {{session.get('user')}}
-    </form>
-</nav>
+  </nav>
 
  
 
@@ -66,31 +75,33 @@
 </body>
 {% block content %}{% endblock %}
 {% if sdata %}
-<table border="1px">
-  <thead>
-      <tr>
-      <th>notes id</th>
-      <th>title</th>
-      <th>created at</th>
-      <th>Description</th>
-      <th>View</th>
-      <th>delete</th>
-      <th>update</th>
-      </tr>
-  </thead>
-  <tbody>
-      {% for i in sdata %}
-      <tr>
-          <td>{{i[0]}}</td>
-          <td>{{i[1]}}</td>
-          <td>{{i[2]}}</td>
-          <td>{{i[3]}}</td>
-          <td><a href="{{url_for('viewnotes',nid=i[0])}}">View</a></td>
-          <td><a href="{{url_for('deletenotes',nid=i[0])}}">delete</a></td>
-          <td><a href="{{url_for('updatenotes',nid=i[0])}}">update</a></td>
-      </tr>
-      {% endfor %}
-  </tbody>
-</table>
+<div class="t">
+  <table border="1px">
+    <thead>
+        <tr>
+        <th>notes id</th>
+        <th>title</th>
+        <th>created at</th>
+        <th>Description</th>
+        <th>View</th>
+        <th>delete</th>
+        <th>update</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in sdata %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td><a href="{{url_for('viewnotes',nid=i[0])}}" class="b">View</a></td>
+            <td><a href="{{url_for('deletenotes',nid=i[0])}}" class="b">delete</a></td>
+            <td><a href="{{url_for('updatenotes',nid=i[0])}}" class="b">update</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+</div>
 {% endif %}
 </html>

@@ -105,3 +105,49 @@ body {
         margin-top: 10px;
     }
 }
+
+.t {
+    margin: 5%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #e0c3fc;
+}
+
+th {
+    background-color: #8eaccd;
+    color: white;
+}
+
+tr {
+    background-color: #d1e9f6;
+}
+
+tr:nth-child(even) {
+    background-color: #d2e0fb;
+}
+
+tr:hover {
+    background-color: #bbe9ff;
+}
+
+.b {
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    background-color: #b1afff;
+}
+
+.b:hover {
+    background-color: #90e0ef;
+    opacity: 0.9;
+}
