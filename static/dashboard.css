@@ -151,3 +151,8 @@ tr:hover {
     background-color: #90e0ef;
     opacity: 0.9;
 }
+.fcontainer{
+    /* border: 1px solid rgba(0, 0, 0, 0.3); */
+    margin: 9% 10% 0% 45%;
+    align-items: center;
+}
